@@ -1,0 +1,297 @@
+:root {
+  /* Renk Paleti (Açık Tema) */
+  --background-color: #f4f4f9;
+  --text-color: #333333;
+  --accent-color: #e63946; /* Koyu Kırmızı/Mercan */
+  --secondary-color: #a8dadc;
+  --card-background: #ffffff;
+  --border-color: #dddddd;
+}
+
+/* Koyu Tema (JavaScript ile bu değişkenler değişecek) */
+body.dark-mode {
+  --background-color: #1a1a1a;
+  --text-color: #f4f4f9;
+  --card-background: #2c2c2c;
+  --border-color: #444444;
+}
+
+/* Genel Stiller ve Font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2.5em;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 5px;
+}
+
+.sub-detail {
+  /* Birleştirilen bölüm için alt detay stili */
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* --- Tema Değiştirme Düğmesi --- */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-background);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
+/* --- Header ve Profil Bölümü --- */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+}
+
+.profile-photo-link {
+  display: block;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+.contact-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.contact-button {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.email-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.phone-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.email-btn:hover,
+.phone-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Beceriler Bölümü --- */
+.skills-section {
+  padding: 20px 0;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.skill-list li {
+  background-color: var(--card-background);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.skill-list li:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* --- Detaylar Bölümü (Eğitim/QR/Sosyal Medya) --- */
+.details-section {
+  padding: 20px 0;
+}
+
+.details-grid {
+  display: grid;
+  /* Grid yapısını 3 parçaya böldük, 300px'den küçükse sığana kadar küçül */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.details-grid div {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Yeni Sosyal Medya Linkleri Stili */
+.social-links-container {
+  text-align: center;
+}
+
+.social-links {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center; /* Linkleri ortala */
+  gap: 35px; /* Linkler arası boşluk */
+}
+
+.social-icon {
+  color: var(--text-color); /* Varsayılan metin rengi */
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px); /* Hover'da hafif yukarı kayma efekti */
+}
+
+/* LinkedIn ve GitHub için özel renkler */
+.social-icon.linkedin:hover {
+  color: #0a66c2; /* LinkedIn Mavi */
+}
+
+.social-icon.github:hover {
+  color: #181717; /* GitHub Siyah */
+}
+
+body.dark-mode .social-icon.github:hover {
+  color: #ffffff; /* Koyu modda beyaz */
+}
+
+/* QR Kod Stili */
+.qr-code {
+  text-align: center;
+}
+
+.qr-code img {
+  border: 3px solid var(--accent-color);
+  border-radius: 8px;
+  margin-top: 10px;
+  width: 120px;
+  height: 120px;
+}
+
+/* --- Projeler Bölümü --- */
+.projects-section {
+  padding: 20px 0;
+}
+
+.project-card {
+  background-color: var(--card-background);
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid var(--accent-color);
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+}
+
+.project-link {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.project-link:hover {
+  background-color: #c72c3b;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 30px;
+  font-size: 0.8em;
+  color: #777;
+}
+
+/* --- Mobil Uyumluluk (Responsive) --- */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-text h1,
+  .profile-text h2 {
+    text-align: center;
+  }
+
+  .contact-links {
+    justify-content: center;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr; /* Tek sütuna düşür */
+  }
+}
